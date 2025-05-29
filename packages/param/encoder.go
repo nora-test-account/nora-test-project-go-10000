@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"time"
 
-	shimjson "github.com/nora-test-account/nora-test-project-go-10000/internal/encoding/json"
+	shimjson "github.com/stainless-sdks/nora-test-project-10000-go/internal/encoding/json"
 
 	"github.com/tidwall/sjson"
 )

@@ -41,7 +41,7 @@ To use a local version of this library from source in another project, edit the 
 directive. This can be done through the CLI with the following:
 
 ```sh
-$ go mod edit -replace github.com/nora-test-account/nora-test-project-go-10000=/path/to/nora-test-project-go-10000
+$ go mod edit -replace github.com/stainless-sdks/nora-test-project-10000-go=/path/to/nora-test-project-10000-go
 ```
 
 ## Running tests

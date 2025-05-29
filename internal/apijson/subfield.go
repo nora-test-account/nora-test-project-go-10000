@@ -1,7 +1,7 @@
 package apijson
 
 import (
-	"github.com/nora-test-account/nora-test-project-go-10000/packages/respjson"
+	"github.com/stainless-sdks/nora-test-project-10000-go/packages/respjson"
 	"reflect"
 )
 

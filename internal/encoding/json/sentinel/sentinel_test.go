@@ -1,7 +1,7 @@
 package sentinel_test
 
 import (
-	"github.com/nora-test-account/nora-test-project-go-10000/internal/encoding/json/sentinel"
+	"github.com/stainless-sdks/nora-test-project-10000-go/internal/encoding/json/sentinel"
 	"reflect"
 	"slices"
 	"testing"
