@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/requestconfig"
-	"github.com/stainless-sdks/nora-test-project-10000-go/option"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/requestconfig"
+	"github.com/nora-test-account/nora-test-project-go-10000/option"
 )
 
 // Client creates a struct with services and top level methods that help with

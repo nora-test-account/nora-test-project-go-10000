@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/nora-test-project-10000-go"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal"
-	"github.com/stainless-sdks/nora-test-project-10000-go/option"
+	"github.com/nora-test-account/nora-test-project-go-10000"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal"
+	"github.com/nora-test-account/nora-test-project-go-10000/option"
 )
 
 type closureTransport struct {
