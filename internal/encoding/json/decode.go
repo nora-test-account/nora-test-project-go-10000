@@ -14,7 +14,7 @@ import (
 	"encoding"
 	"encoding/base64"
 	"fmt"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/encoding/json/shims"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/encoding/json/shims"
 	"reflect"
 	"strconv"
 	"strings"

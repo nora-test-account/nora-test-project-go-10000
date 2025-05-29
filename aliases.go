@@ -3,8 +3,8 @@
 package noratestproject10000
 
 import (
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/apierror"
-	"github.com/stainless-sdks/nora-test-project-10000-go/packages/param"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/apierror"
+	"github.com/nora-test-account/nora-test-project-go-10000/packages/param"
 )
 
 // aliased to make [param.APIUnion] private when embedding
