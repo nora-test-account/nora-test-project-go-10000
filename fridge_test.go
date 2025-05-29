@@ -7,15 +7,13 @@ import (
 	"errors"
 	"os"
 	"testing"
-	"time"
 
 	"github.com/stainless-sdks/nora-test-project-10000-go"
 	"github.com/stainless-sdks/nora-test-project-10000-go/internal/testutil"
 	"github.com/stainless-sdks/nora-test-project-10000-go/option"
-	"github.com/stainless-sdks/nora-test-project-10000-go/shared"
 )
 
-func TestStoreOrderNewWithOptionalParams(t *testing.T) {
+func TestFridgeAddItem(t *testing.T) {
 	t.Skip("skipped: tests are disabled for the time being")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -28,14 +26,10 @@ func TestStoreOrderNewWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Store.Order.New(context.TODO(), noratestproject10000.StoreOrderNewParams{
-		Order: shared.OrderParam{
-			ID:       noratestproject10000.Int(10),
-			Complete: noratestproject10000.Bool(true),
-			PetID:    noratestproject10000.Int(198772),
-			Quantity: noratestproject10000.Int(7),
-			ShipDate: noratestproject10000.Time(time.Now()),
-			Status:   shared.OrderStatusApproved,
+	_, err := client.Fridge.AddItem(context.TODO(), noratestproject10000.FridgeAddItemParams{
+		Food: noratestproject10000.FoodParam{
+			Name:     "name",
+			Quantity: "quantity",
 		},
 	})
 	if err != nil {
@@ -47,7 +41,7 @@ func TestStoreOrderNewWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestStoreOrderGet(t *testing.T) {
+func TestFridgeDeleteItem(t *testing.T) {
 	t.Skip("skipped: tests are disabled for the time being")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -60,7 +54,7 @@ func TestStoreOrderGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Store.Order.Get(context.TODO(), 0)
+	_, err := client.Fridge.DeleteItem(context.TODO(), "name")
 	if err != nil {
 		var apierr *noratestproject10000.Error
 		if errors.As(err, &apierr) {
@@ -70,7 +64,7 @@ func TestStoreOrderGet(t *testing.T) {
 	}
 }
 
-func TestStoreOrderDelete(t *testing.T) {
+func TestFridgeListItems(t *testing.T) {
 	t.Skip("skipped: tests are disabled for the time being")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -83,7 +77,62 @@ func TestStoreOrderDelete(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Store.Order.Delete(context.TODO(), 0)
+	_, err := client.Fridge.ListItems(context.TODO())
+	if err != nil {
+		var apierr *noratestproject10000.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestFridgeGetItem(t *testing.T) {
+	t.Skip("skipped: tests are disabled for the time being")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := noratestproject10000.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
+	)
+	_, err := client.Fridge.GetItem(context.TODO(), "name")
+	if err != nil {
+		var apierr *noratestproject10000.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestFridgeUpdateItem(t *testing.T) {
+	t.Skip("skipped: tests are disabled for the time being")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := noratestproject10000.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
+	)
+	_, err := client.Fridge.UpdateItem(
+		context.TODO(),
+		"name",
+		noratestproject10000.FridgeUpdateItemParams{
+			Food: noratestproject10000.FoodParam{
+				Name:     "name",
+				Quantity: "quantity",
+			},
+		},
+	)
 	if err != nil {
 		var apierr *noratestproject10000.Error
 		if errors.As(err, &apierr) {

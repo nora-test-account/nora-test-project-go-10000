@@ -1,4 +1,4 @@
-configured_endpoints: 19
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/nora-test-org-2%2Fnora-test-project-10000-6937085190e3e5553f943ff22deda900cd8ad4bf5e37278cba7de683b78ae8d2.yml
-openapi_spec_hash: 85dc5d1e011be6539c240594f06f284b
-config_hash: 629f6b1d3b5b1ac5db45dc310fa42669
+configured_endpoints: 5
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/nora-test-org-2%2Fnora-test-project-10000-3b45618c571e8b49542266ce04672db411f6e6987bfe94567c3c2728d80c9fe4.yml
+openapi_spec_hash: 8934316f52f38a53d1581e5cfe0a4e84
+config_hash: 8b90e3418b0de6049afb755efc7ac849

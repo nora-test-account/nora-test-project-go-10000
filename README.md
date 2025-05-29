@@ -42,13 +42,13 @@ import (
 
 func main() {
 	client := noratestproject10000.NewClient(
-		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("PETSTORE_API_KEY")
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("NORA_TEST_PROJECT_10000_API_KEY")
 	)
-	order, err := client.Store.Order.New(context.TODO(), noratestproject10000.StoreOrderNewParams{})
+	foods, err := client.Fridge.ListItems(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", order.ID)
+	fmt.Printf("%+v\n", foods)
 }
 
 ```
@@ -254,7 +254,7 @@ client := noratestproject10000.NewClient(
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.Store.ListInventory(context.TODO(), ...,
+client.Fridge.ListItems(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -283,14 +283,14 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.Store.ListInventory(context.TODO())
+_, err := client.Fridge.ListItems(context.TODO())
 if err != nil {
 	var apierr *noratestproject10000.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
 	}
-	panic(err.Error()) // GET "/store/inventory": 400 Bad Request { ... }
+	panic(err.Error()) // GET "/fridge": 400 Bad Request { ... }
 }
 ```
 
@@ -308,7 +308,7 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.Store.ListInventory(
+client.Fridge.ListItems(
 	ctx,
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
@@ -343,7 +343,7 @@ client := noratestproject10000.NewClient(
 )
 
 // Override per-request:
-client.Store.ListInventory(context.TODO(), option.WithMaxRetries(5))
+client.Fridge.ListItems(context.TODO(), option.WithMaxRetries(5))
 ```
 
 ### Accessing raw response data (e.g. response headers)
@@ -354,11 +354,11 @@ you need to examine response headers, status codes, or other details.
 ```go
 // Create a variable to store the HTTP response
 var response *http.Response
-response, err := client.Store.ListInventory(context.TODO(), option.WithResponseInto(&response))
+foods, err := client.Fridge.ListItems(context.TODO(), option.WithResponseInto(&response))
 if err != nil {
 	// handle error
 }
-fmt.Printf("%+v\n", response)
+fmt.Printf("%+v\n", foods)
 
 fmt.Printf("Status Code: %d\n", response.StatusCode)
 fmt.Printf("Headers: %+#v\n", response.Header)

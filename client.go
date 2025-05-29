@@ -16,12 +16,10 @@ import (
 // this client directly, and instead use the [NewClient] method instead.
 type Client struct {
 	Options []option.RequestOption
-	Pet     PetService
-	Store   StoreService
-	User    UserService
+	Fridge  FridgeService
 }
 
-// DefaultClientOptions read from the environment (PETSTORE_API_KEY,
+// DefaultClientOptions read from the environment (NORA_TEST_PROJECT_10000_API_KEY,
 // NORA_TEST_PROJECT_10000_BASE_URL). This should be used to initialize new
 // clients.
 func DefaultClientOptions() []option.RequestOption {
@@ -29,24 +27,23 @@ func DefaultClientOptions() []option.RequestOption {
 	if o, ok := os.LookupEnv("NORA_TEST_PROJECT_10000_BASE_URL"); ok {
 		defaults = append(defaults, option.WithBaseURL(o))
 	}
-	if o, ok := os.LookupEnv("PETSTORE_API_KEY"); ok {
+	if o, ok := os.LookupEnv("NORA_TEST_PROJECT_10000_API_KEY"); ok {
 		defaults = append(defaults, option.WithAPIKey(o))
 	}
 	return defaults
 }
 
 // NewClient generates a new client with the default option read from the
-// environment (PETSTORE_API_KEY, NORA_TEST_PROJECT_10000_BASE_URL). The option
-// passed in as arguments are applied after these default arguments, and all option
-// will be passed down to the services and requests that this client makes.
+// environment (NORA_TEST_PROJECT_10000_API_KEY, NORA_TEST_PROJECT_10000_BASE_URL).
+// The option passed in as arguments are applied after these default arguments, and
+// all option will be passed down to the services and requests that this client
+// makes.
 func NewClient(opts ...option.RequestOption) (r Client) {
 	opts = append(DefaultClientOptions(), opts...)
 
 	r = Client{Options: opts}
 
-	r.Pet = NewPetService(opts...)
-	r.Store = NewStoreService(opts...)
-	r.User = NewUserService(opts...)
+	r.Fridge = NewFridgeService(opts...)
 
 	return
 }
