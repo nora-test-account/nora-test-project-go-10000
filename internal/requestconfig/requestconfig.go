@@ -18,10 +18,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/apierror"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/apiform"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/apiquery"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/apierror"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/apiform"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {
