@@ -24,9 +24,9 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	order, err := client.Store.Order.New(context.TODO(), noratestproject10000.StoreOrderNewParams{})
+	foods, err := client.Fridge.ListItems(context.TODO())
 	if err != nil {
 		t.Fatalf("err should be nil: %s", err.Error())
 	}
-	t.Logf("%+v\n", order.ID)
+	t.Logf("%+v\n", foods)
 }
