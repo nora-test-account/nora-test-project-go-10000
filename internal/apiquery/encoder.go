@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/stainless-sdks/nora-test-project-10000-go/packages/param"
+	"github.com/nora-test-account/nora-test-project-go-10000/packages/param"
 )
 
 var encoders sync.Map // map[reflect.Type]encoderFunc
