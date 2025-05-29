@@ -1,8 +1,8 @@
 package paramutil
 
 import (
-	"github.com/stainless-sdks/nora-test-project-10000-go/packages/param"
-	"github.com/stainless-sdks/nora-test-project-10000-go/packages/respjson"
+	"github.com/nora-test-account/nora-test-project-go-10000/packages/param"
+	"github.com/nora-test-account/nora-test-project-go-10000/packages/respjson"
 )
 
 func AddrIfPresent[T comparable](v param.Opt[T]) *T {

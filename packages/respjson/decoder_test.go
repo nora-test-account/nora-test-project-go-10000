@@ -3,8 +3,8 @@ package respjson_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/stainless-sdks/nora-test-project-10000-go/internal/apijson"
-	rj "github.com/stainless-sdks/nora-test-project-10000-go/packages/respjson"
+	"github.com/nora-test-account/nora-test-project-go-10000/internal/apijson"
+	rj "github.com/nora-test-account/nora-test-project-go-10000/packages/respjson"
 	"reflect"
 	"testing"
 )
