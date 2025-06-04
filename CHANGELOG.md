@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-06-04)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/nora-test-account/nora-test-project-go-10000/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** update via SDK Studio ([924be48](https://github.com/nora-test-account/nora-test-project-go-10000/commit/924be483284faf03d91d092109e3c93ec9b8eca7))
+* **client:** allow overriding unions ([6f74da1](https://github.com/nora-test-account/nora-test-project-go-10000/commit/6f74da1f6a1c2fbdd46d696b81f68861d595c459))
+
+
+### Bug Fixes
+
+* **client:** cast to raw message when converting to params ([e4dfb48](https://github.com/nora-test-account/nora-test-project-go-10000/commit/e4dfb48e16827e22e6cdc76425c188bc42509d81))
+* correct unmarshalling of root body params ([8d25b92](https://github.com/nora-test-account/nora-test-project-go-10000/commit/8d25b92a29e88915d0246951a394731542c85f4c))
+* fix error ([7044c9e](https://github.com/nora-test-account/nora-test-project-go-10000/commit/7044c9e4a473c8839444968c37dacffa778c8a44))
+
+
+### Chores
+
+* make go mod tidy continue on error ([94f5a7e](https://github.com/nora-test-account/nora-test-project-go-10000/commit/94f5a7e20b2af039bc6ea73d81cdcdd5d6e0349f))
+* update SDK settings ([6e3067a](https://github.com/nora-test-account/nora-test-project-go-10000/commit/6e3067a3b293c255985449d776258b13a9506484))
+
 ## 0.1.0-alpha.1 (2025-05-29)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/nora-test-account/nora-test-project-go-10000/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
